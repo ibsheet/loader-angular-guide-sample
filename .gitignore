@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 
 # ibsheet
+/src/assets/ibsheet
