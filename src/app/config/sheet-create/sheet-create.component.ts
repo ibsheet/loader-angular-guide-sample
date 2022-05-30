@@ -21,23 +21,23 @@ export class SheetCreateComponent implements OnInit, OnDestroy {
   }
 
   setSheet(): any {
-    this.options.map(x => {
+    this.options.map((x: { sheetId: string; sheetEl: string; sheetOptions: any; sheetData: any; }) => {
       loader.createSheet({
         id: x.sheetId,
         el: x.sheetEl,
         options: x.sheetOptions,
         data: x.sheetData
       })
-      .then(sheet => {
+      .then((sheet: any) => {
         // 시트 객체 생성, 시트 렌더링 x
       })
-      .catch(err => {
+      .catch((err: any) => {
         console.log('Failed to create sheet', err);
       });
     })
   }
   removeSheet(): void {
-    this.options.map(x => {
+    this.options.map((x: { sheetId: any; }) => {
       loader.removeSheet(x.sheetId);
     })
   }

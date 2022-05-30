@@ -1,1 +1,13 @@
-<p>multiple works!</p>
+<div>
+  <span>포뮬러 기능</span>
+  <p>특정 컬럼을 기준으로, 지정한 컬럼들에 대한 소계 값을 보여주는 기능입니다.</p>
+  <div class="example-button-row">
+    <button mat-raised-button (click)="onSheetState('create');">시트 생성</button>
+    <button mat-raised-button (click)="onSheetState('remove');">시트 지우기</button>
+  </div>
+  <div style="display: flex;">
+    <div id="sheetDiv1" style="width: 33%; height: 70vh;"></div>
+    <div id="sheetDiv2" style="width: 33%; height: 70vh;"></div>
+    <div id="sheetDiv3" style="width: 33%; height: 70vh;"></div>
+  </div>
+</div>
