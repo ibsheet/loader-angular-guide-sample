@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SheetCreateComponent } from '../config/sheet-create/sheet-create.component';
-import { options } from './options';
+import { options } from './type.options';
 
 @Component({
   selector: 'app-type',

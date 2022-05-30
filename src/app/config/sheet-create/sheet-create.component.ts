@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import loader from '@ibsheet/loader';
-import { detailData } from 'src/app/master-detail/options';
+import { detailData } from 'src/app/master-detail/master-detail.options';
 
 @Component({
   selector: 'app-sheet-create',

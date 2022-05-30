@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SheetCreateComponent } from '../config/sheet-create/sheet-create.component';
-import { options } from './options';
+import { options } from './subsum.options';
 import loader from '@ibsheet/loader';
 
 @Component({

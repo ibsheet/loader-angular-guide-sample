@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SheetCreateComponent } from '../config/sheet-create/sheet-create.component';
-import { options } from './options';
+import { options } from './master-detail.options';
 
 @Component({
   selector: 'app-master-detail',
