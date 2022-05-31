@@ -1190,7 +1190,7 @@
 
 "@ibsheet/loader@^1.1.14", "@ibsheet/loader@^1.1.2":
   version "1.1.14"
-  resolved "https://registry.npmjs.org/@ibsheet/loader/-/loader-1.1.14.tgz"
+  resolved "https://registry.yarnpkg.com/@ibsheet/loader/-/loader-1.1.14.tgz#c96edc040f2ba01cd1d8a4fd5243a58f518976aa"
   integrity sha512-XOTsHNcKQgNTvG6z1dXC8j4Ufq2hoICwfV5fx2uLKIV8ugD0UkNiVP31Ll2SM7ZqHJyTL6Kqo1QvDkP3F7n6ow==
   dependencies:
     "@ibsheet/loader" "^1.1.2"

@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import loader from '@ibsheet/loader';
+
+loader.config({
+  registry: {
+    name: 'ibsheet',
+    baseUrl: '/assets/ibsheet'
+  }
+});
 
 @Component({
   selector: 'app-root',

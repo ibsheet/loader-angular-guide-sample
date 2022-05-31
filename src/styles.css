@@ -2,3 +2,4 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.IBCellHeader{color:white;background:#fd3875;border-bottom:1px solid #6F7F94;border-right:1px solid #6F7F94}
