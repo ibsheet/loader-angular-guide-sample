@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SheetCreateComponent } from '../config/sheet-create/sheet-create.component';
 import { options } from './serverscrollpaging.options';
 
@@ -7,7 +7,7 @@ import { options } from './serverscrollpaging.options';
   templateUrl: './serverscrollpaging.component.html',
   styleUrls: ['./serverscrollpaging.component.css']
 })
-export class ServerscrollpagingComponent implements OnInit {
+export class ServerscrollpagingComponent implements OnInit, OnDestroy {
 
   constructor() { }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SheetCreateComponent } from '../config/sheet-create/sheet-create.component';
 import { options } from './formula.options';
 
@@ -7,7 +7,7 @@ import { options } from './formula.options';
   templateUrl: './formula.component.html',
   styleUrls: ['./formula.component.css']
 })
-export class FormulaComponent implements OnInit {
+export class FormulaComponent implements OnInit, OnDestroy {
 
   constructor() { }
 

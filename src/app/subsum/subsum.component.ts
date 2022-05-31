@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SheetCreateComponent } from '../config/sheet-create/sheet-create.component';
 import { options } from './subsum.options';
 import loader from '@ibsheet/loader';
@@ -8,7 +8,7 @@ import loader from '@ibsheet/loader';
   templateUrl: './subsum.component.html',
   styleUrls: ['./subsum.component.css']
 })
-export class SubsumComponent implements OnInit {
+export class SubsumComponent implements OnInit, OnDestroy {
 
   constructor() { }
 

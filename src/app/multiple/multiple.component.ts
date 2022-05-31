@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SheetCreateComponent } from '../config/sheet-create/sheet-create.component';
 import { options } from './multiple.options';
 import loader from '@ibsheet/loader';
@@ -8,7 +8,7 @@ import loader from '@ibsheet/loader';
   templateUrl: './multiple.component.html',
   styleUrls: ['./multiple.component.css']
 })
-export class MultipleComponent implements OnInit {
+export class MultipleComponent implements OnInit, OnDestroy {
 
   constructor() { }
 

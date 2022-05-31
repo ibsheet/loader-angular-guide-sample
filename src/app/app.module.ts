@@ -6,8 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RouterModule, Routes } from '@angular/router';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MaterialExampleModule } from './material.module';
+
 import { HomeComponent } from './home/home.component';
 import { TypeComponent } from './type/type.component';
 import { MergeComponent } from './merge/merge.component';
@@ -19,7 +20,7 @@ import { MultirecordComponent } from './multirecord/multirecord.component';
 import { ServerscrollpagingComponent } from './serverscrollpaging/serverscrollpaging.component';
 import { FormComponent } from './form/form.component';
 import { MultipleComponent } from './multiple/multiple.component';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent, DialogOverview } from './dialog/dialog.component';
 import { MasterDetailComponent } from './master-detail/master-detail.component';
 import { SheetCreateComponent } from './config/sheet-create/sheet-create.component';
 
@@ -53,6 +54,7 @@ const appRoutes: Routes = [
     FormComponent,
     MultipleComponent,
     DialogComponent,
+    DialogOverview,
     MasterDetailComponent,
     SheetCreateComponent
   ],
@@ -60,8 +62,8 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    MatButtonModule,
-    MatSelectModule
+    MatNativeDateModule,
+    MaterialExampleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

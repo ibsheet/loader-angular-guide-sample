@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SheetCreateComponent } from '../config/sheet-create/sheet-create.component';
 import { options } from './master-detail.options';
 
@@ -7,7 +7,7 @@ import { options } from './master-detail.options';
   templateUrl: './master-detail.component.html',
   styleUrls: ['./master-detail.component.css']
 })
-export class MasterDetailComponent implements OnInit {
+export class MasterDetailComponent implements OnInit, OnDestroy {
 
   constructor() { }
 

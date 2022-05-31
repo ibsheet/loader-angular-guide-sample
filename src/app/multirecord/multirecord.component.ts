@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SheetCreateComponent } from '../config/sheet-create/sheet-create.component';
 import { options } from './multirecord.options';
 
@@ -7,7 +7,7 @@ import { options } from './multirecord.options';
   templateUrl: './multirecord.component.html',
   styleUrls: ['./multirecord.component.css']
 })
-export class MultirecordComponent implements OnInit {
+export class MultirecordComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
