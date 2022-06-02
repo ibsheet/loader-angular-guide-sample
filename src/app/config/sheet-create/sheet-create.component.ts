@@ -34,36 +34,38 @@ export class SheetCreateComponent implements OnInit, OnDestroy {
           const ibsheet = loader.getIBSheetStatic();
           if (!ibsheet.onRenderFirstFinishAll) {
             ibsheet.onRenderFirstFinishAll = (evt: any) => {
-              ibsheet[0].bind("onFocus", (param: any) => {
-                if (param.orow && param.row !== param.orow) {
-                  const sigun = param.row.sSiGunGu;
-                  let dData: Array<any> = [];
+              if (ibsheet['masterSheet']) {
+                ibsheet['masterSheet'].bind("onFocus", (param: any) => {
+                  if (param.orow && param.row !== param.orow) {
+                    const sigun = param.row.sSiGunGu;
+                    let dData: Array<any> = [];
 
-                  switch (sigun) {
-                    case '관악구':
-                      dData = detailData.gwanak;
-                      break;
-                    case '광진구':
-                      dData = detailData.gwangjin;
-                      break;
-                    case '금천구':
-                      dData = detailData.geumcheon;
-                      break;
-                    case '동작구':
-                      dData = detailData.dongjak;
-                      break;
-                    case '서초구':
-                      dData = detailData.seocho;
-                      break;
-                    case '송파구':
-                      dData = detailData.songpa;
-                      break;
-                    default:
-                      break;
+                    switch (sigun) {
+                      case '관악구':
+                        dData = detailData.gwanak;
+                        break;
+                      case '광진구':
+                        dData = detailData.gwangjin;
+                        break;
+                      case '금천구':
+                        dData = detailData.geumcheon;
+                        break;
+                      case '동작구':
+                        dData = detailData.dongjak;
+                        break;
+                      case '서초구':
+                        dData = detailData.seocho;
+                        break;
+                      case '송파구':
+                        dData = detailData.songpa;
+                        break;
+                      default:
+                        break;
+                    }
+                    evt.sheet.loadSearchData(dData);
                   }
-                  evt.sheet.loadSearchData(dData);
-                }
-              });
+                });
+              }
             }
           }
         }
