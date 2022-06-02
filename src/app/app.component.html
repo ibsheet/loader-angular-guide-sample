@@ -1,80 +1,26 @@
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #fd3875;
-    color: white;
-    font-weight: 600;
-  }
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto;
-    padding: 0 16px;
-    max-width: 1200px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-</style>
-
 <div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-  <a href="/">
-    <span style="color: #000;font-size: 24px;">IBSheet8</span>
-  </a>
+  <div style="padding-left: 24px; padding-right: 24px;">
+    <span class="material-icons" style="font-size: 1.3em;">grid_view</span>
+    <a href="/">
+      <span style="color: #000;font-size: 24px;">IBSheet8</span>
+    </a>
+  </div>
   <div class="spacer"></div>
 </div>
 
 <div class="content" role="main">
+  <div>
+    <div class="content_title">
+      <span class="main_title">IBSheet8</span>
+      <p class="sub_title">Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 Angular 환경에서 제공합니다.</p>
+      <div style="padding-top: 20px;">
+        <a mat-raised-button href="https://www.google.com/" target="_blank">SANDBOX</a>
+        <a mat-raised-button href="https://www.google.com/" target="_blank">GITHUB</a>
+      </div>
+    </div>
+  </div>
 
   <div style="width:100%;">
-    <span style="color: #000;font-size: 40px;font-weight: bold;">IBSheet8</span>
-    <p style="margin-top: 14px; margin-bottom: 14px; font-size: 18px;">Loader를 사용하여 IBSheet8의 대용량 조회, 높은 자유도, 다양한 렌더링 방식 등 다양한 기능을 Angular 환경에서 제공합니다.</p>
-    <div style="padding-top: 20px;">
-      <a mat-raised-button href="https://www.google.com/" target="_blank">SANDBOX</a>
-      <a mat-raised-button href="https://www.google.com/" target="_blank">GITHUB</a>
-    </div>
-
     <div class="main">
       <router-outlet></router-outlet>
     </div>

@@ -1,0 +1,77 @@
+:host {
+  font-family: Noto Sans CJK KR,sans-serif;
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 8px 0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #fd3875;
+  color: white;
+  font-weight: 600;
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.content {
+  margin: 60px auto;
+  padding: 0 16px;
+}
+.content > :first-child {
+  width: 100%;
+  background: rgb(247, 247, 247);
+}
+
+a {
+text-decoration: none;
+}
+
+.content_title {
+margin: auto;
+margin-top: 7px;
+max-width: 1200px;
+}
+
+.main_title {
+color: #000;
+font-size: 40px;
+font-weight: bold;
+font-family: Noto Sans CJK KR,sans-serif;
+}
+
+.sub_title {
+color: #000;
+font-size: 18px;
+margin-top: 14px;
+margin-bottom: 14px;
+}
+
+.main {
+max-width: 1200px;
+margin: 0px auto;
+padding-top: 15px;
+}

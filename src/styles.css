@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Noto Sans CJK KR,sans-serif; }
 .IBCellHeader{color:white;background:#fd3875;border-bottom:1px solid #6F7F94;border-right:1px solid #6F7F94}
+
+.content_title {
+  padding: 48px 0px 24px;
+}
