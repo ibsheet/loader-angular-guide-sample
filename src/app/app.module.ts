@@ -24,6 +24,10 @@ import { DialogComponent, DialogOverview } from './dialog/dialog.component';
 import { MasterDetailComponent } from './master-detail/master-detail.component';
 import { SheetCreateComponent } from './config/sheet-create/sheet-create.component';
 
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faCode, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'type', component: TypeComponent },
@@ -63,9 +67,18 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     MatNativeDateModule,
-    MaterialExampleModule
+    MaterialExampleModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(
+      faGithub,
+      faCode,
+      faSearch
+    )
+  }
+}

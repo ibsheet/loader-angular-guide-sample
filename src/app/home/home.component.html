@@ -1,38 +1,17 @@
-<mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile>
-    <a routerLink="/type" routerLinkActive="active">컬럼 타입</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/merge" routerLinkActive="active">자동 머지</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/tree" routerLinkActive="active">트리 기능</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/dataload" routerLinkActive="active">대용량 조회</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/subsum" routerLinkActive="active">소계 기능</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/formula" routerLinkActive="active">포뮬러 기능</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/multirecord" routerLinkActive="active">멀티레코드</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/serverscrollpaging" routerLinkActive="active">서버 페이징</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/form" routerLinkActive="active">Form 형태를 이용한 상세보기</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/multiple" routerLinkActive="active">여러 개의 시트</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/dialog" routerLinkActive="active">시트 + 다이얼로그</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a routerLink="/masterDetail" routerLinkActive="active">마스터 디테일 구조</a>
+<mat-grid-list cols="3" rowHeight="1.5:1">
+  <mat-grid-tile *ngFor="let item of items;">
+    <div style="width:100%; padding: 10px;">
+      <div style="width: 100%;">
+        <div [ngStyle]="{'background-image': getImage(item.url)}" class="grid_img">
+          <div class="grid_hover">
+            <fa-icon [icon]="['fas', 'search']" [routerLink]="[item.url]" routerLinkActive="active" size="4x" class="grid_icon"></fa-icon>
+          </div>
+        </div>
+        <div style="margin-top: 15px;">
+          <span class="grid_title" [ngStyle]="{'background': getColor(item.val)}">{{ item.val }}</span>
+          <span class="grid_subtitle">{{ item.type }}</span>
+        </div>
+      </div>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>
