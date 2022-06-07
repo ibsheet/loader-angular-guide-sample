@@ -14,7 +14,7 @@ loader.config({
 });
 
 // 로더 이벤트
-loader.once('loaded', (evt) => {
+loader.once('loaded', (evt: { target: any; }) => {
   const target = evt.target;
   if (target.alias === ibsheetLib.name) {
     let IBSheet = loader.getIBSheetStatic();
