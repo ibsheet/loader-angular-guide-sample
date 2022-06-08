@@ -1,4 +1,5 @@
 # loader-angular-guide-sample 👋
+
 ## Guide sample using loader and angular
 
 ## 📖 구조
@@ -11,7 +12,9 @@
 
 👉 `@ibsheet/loader: 1.1.14` <br/>
 👉 `Typescript, Angular, Angular-Material, FontAweSome`
+
 ### ✨설치방법
+
 1. `clone` 을 받는다.
 2. `yarn` or `npm install` 을 이용하여 다운받는다.
 3. `sheet-loader` 버전을 확인해보고, 필요한 로더 버전으로 업데이트한다. 해당 샘플 기준으로는 ^1.1.11 버전이 설치됩니다.
