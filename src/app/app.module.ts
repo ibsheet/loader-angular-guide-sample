@@ -27,6 +27,7 @@ import { SheetCreateComponent } from './config/sheet-create/sheet-create.compone
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCode, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { APP_BASE_HREF } from '@angular/common';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -70,7 +71,7 @@ const appRoutes: Routes = [
     MaterialExampleModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/v8/demo/angular'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

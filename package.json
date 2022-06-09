@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prod-build": "ng build --base-href=https://www.ibsheet.com/v8/demo/angular/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

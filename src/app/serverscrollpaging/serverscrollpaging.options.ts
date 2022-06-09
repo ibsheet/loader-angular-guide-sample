@@ -705,7 +705,7 @@ const options = [
 						};
 					}) => {
 					const param = {
-						url: 'http://localhost:8000/api/data',
+						url: location.href.indexOf('localhost') > -1 ? 'http://localhost:8000/api/data' : 'https://api.ibleaders.com/ibsheet/v8/customer/paging.jsp',
 						// 카운팅 할 data 의 갯수와 전체 갯수를 param 으로 해서 보내도록 합니다.
 						param: 'data=100&total=20000&searchMode=' + evt.sheet.SearchMode,
 						callback: (rtn: { data: string; }) => {
