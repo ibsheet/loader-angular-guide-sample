@@ -705,8 +705,7 @@ const options = [
 						};
 					}) => {
 					const param = {
-						url: location.href.indexOf('localhost') > -1 ? 'http://localhost:8000/api' : 'https://api.ibleaders.com/ibsheet/v8/customer/paging.jsp',
-						// 카운팅 할 data 의 갯수와 전체 갯수를 param 으로 해서 보내도록 합니다.
+						url: location.href.indexOf('localhost') > -1 ? 'http://localhost:8000/api' : 'https://dev.ibleaders.com/api/ibsheet/v8/samples/customer/paging.jsp',
 						param: 'data=100&total=20000&searchMode=' + evt.sheet.SearchMode,
 						callback: (rtn: { data: string; }) => {
 							const rtnData = JSON.parse(rtn.data);
@@ -727,7 +726,7 @@ const options = [
 							message = '100이하, 400이상의 상태코드 입니다.';
 							break;
 						case -5:
-							message = 'api 폴더에서 서버를 실행시켜주세요. (명령어: node app.js)';
+							message = 'api 폴더에서 서버를 실행시켜주세요. (명령어: yarn start)';
 							break;
 						case -6:
 							message = '연결 시간 초과 되었습니다.';
