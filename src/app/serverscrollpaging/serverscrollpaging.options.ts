@@ -707,6 +707,7 @@ const options = [
 					const param = {
 						url: location.href.indexOf('localhost') > -1 ? 'http://localhost:8000/api' : 'https://dev.ibleaders.com/api/ibsheet/v8/samples/customer/paging.jsp',
 						param: 'data=100&total=20000&searchMode=' + evt.sheet.SearchMode,
+						method: location.href.indexOf('localhost') > -1 ? 'GET' : 'POST',
 						callback: (rtn: { data: string; }) => {
 							const rtnData = JSON.parse(rtn.data);
 							evt.sheet.showMessageTime('<span style=\'color:black\'>조회가 완료되었습니다.<br> 서버모듈 전체 데이터 건수 : ' + rtnData.Total + '</span>', 1500);
