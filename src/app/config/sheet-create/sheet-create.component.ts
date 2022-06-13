@@ -30,6 +30,7 @@ export class SheetCreateComponent implements OnInit, OnDestroy {
         data: x.sheetData
       })
       .then((sheet: any) => {
+        // 주의: 해당 구간에서 데이터 조회를 하면 안됩니다. 데이터 조회는 onRenderFirstFinish 이벤트에서 실행해야합니다.
         if (sheet.id === 'detailSheet') {
           const ibsheet = loader.getIBSheetStatic();
           if (!ibsheet.onRenderFirstFinishAll) {
