@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
   }
 
   getImage(val: string): string {
-    const str = './assets/img/' + val + '.png';
+    const str = '/assets/img' + val + '.png';
     return 'url(' + str + ')';
   }
 
