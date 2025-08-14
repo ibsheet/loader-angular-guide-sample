@@ -705,7 +705,7 @@ const options = [
 						};
 					}) => {
 					const param = {
-						url: location.href.indexOf('localhost') > -1 ? 'http://localhost:8000/api' : 'https://dev.ibleaders.com/api/ibsheet/v8/samples/customer/paging.jsp',
+						url: location.href.indexOf('localhost') > -1 ? 'http://localhost:8000/api/data' : 'https://dev.ibsheet.com/api/ibsheet/v8/samples/customer/paging.jsp',
 						param: 'data=100&total=20000&searchMode=' + evt.sheet.SearchMode,
 						method: location.href.indexOf('localhost') > -1 ? 'GET' : 'POST',
 						callback: (rtn: { data: string; }) => {
@@ -727,7 +727,7 @@ const options = [
 							message = '100이하, 400이상의 상태코드 입니다.';
 							break;
 						case -5:
-							message = 'api 폴더에서 서버를 실행시켜주세요. (명령어: yarn start)';
+							message = 'api 폴더에서 서버를 실행시켜주세요. (명령어: node server.js)';
 							break;
 						case -6:
 							message = '연결 시간 초과 되었습니다.';

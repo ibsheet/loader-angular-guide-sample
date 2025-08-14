@@ -74,7 +74,7 @@ interface Preset {
   DelCheck: IB_ETC;
 }
 
-export {
+export type {
   IB_Date,
   IB_Number,
   IB_STAUS,
@@ -233,11 +233,12 @@ export const IB_Preset: Preset = {
   'DelCheck': {
     Type: 'Bool',
     Width: 50,
-    OnClick: evtParam => {
+    OnClick: (evtParam): boolean => {
       //부모가 체크되어 있는 경우 더 이상 진행하지 않는다.
       const chked = !(evtParam["row"][evtParam["col"]]);
       const prows = evtParam["sheet"].getParentRows(evtParam["row"]);
       if (!chked && prows[0] && prows[0][evtParam["col"]]) return true;
+      else return false;
     },
     OnChange: evtParam => {
       const chked = evtParam["row"][evtParam["col"]];

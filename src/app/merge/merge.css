@@ -1,0 +1,37 @@
+.desc_title {
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.desc_sub {
+  color: #4c4c57;
+  font-size: 1rem;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.mat-mdc-option.mdc-list-item {
+  background-color: white;
+}
+.mat-mdc-option:focus.mdc-list-item, .mat-mdc-option.mat-mdc-option-active.mdc-list-item {
+  background-color: white;
+}
+
+.mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background-color: white;
+}
+
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple) {
+  background-color: white;
+}
+
+.mat-mdc-option .mdc-list-item__primary-text {
+  background-color: white;
+  z-index: 100;
+}
+div.mat-mdc-select-panel {
+  background-color: white;
+}
+.cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel {
+  background-color: white;
+}

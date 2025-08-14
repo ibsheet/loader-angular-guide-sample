@@ -1,4 +1,4 @@
-import { IB_Preset } from '../config/common';
+import { IB_Preset } from '../config/common'
 
 const data = [
 	{
