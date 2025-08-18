@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedModules } from '../shared/shared.module';
-import { SheetCreate } from '../config/sheet-create/sheet-create';
 import { options } from './dataload.options';
-import loader from '@ibsheet/loader';
-// import { IB_Preset } from '../config/common';
+import { IBSheetAngular } from '@ibsheet/angular';
+import type { IBSheetInstance } from '@ibsheet/angular';
 
 interface loadInfo {
   value: number;
@@ -12,29 +11,33 @@ interface loadInfo {
 
 @Component({
   selector: 'app-dataload',
-  imports: [SharedModules],
+  imports: [SharedModules, IBSheetAngular],
   templateUrl: './dataload.html',
   styleUrl: './dataload.css'
 })
-export class Dataload implements OnInit, OnDestroy {
+export class Dataload {
    loadv: loadInfo[] = [
     {value: 100000, valueString: '100,000 건'},
     {value: 200000, valueString: '200,000 건'},
     {value: 300000, valueString: '300,000 건'},
   ];
   
-  constructor() { }
+  sheet?: IBSheetInstance;
 
-  sheet = new SheetCreate(options);
+  sheetOptions: any;
+  data: any;
 
-  ngOnInit(): void {
-    this.sheet.setSheet();
+  obj = options.map((x: { sheetOptions: any; sheetData: any }) => {
+    this.sheetOptions = x.sheetOptions;
+    this.data = x.sheetData;
+  });
+
+  getInstance(obj: IBSheetInstance): void {
+    this.sheet = obj;
   }
-  ngOnDestroy(): void {
-    this.sheet.removeSheet();
-  }
+
   onLoadData(count: number): void {
-    const sheet = loader.getIBSheetStatic()[0];
+    const sheet = this.sheet
     if (sheet) {
       const data: any[] = [];
       const company = [

@@ -1,25 +1,29 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedModules } from '../shared/shared.module';
-import { SheetCreate } from '../config/sheet-create/sheet-create';
 import { options } from './formula.options';
-import loader from '@ibsheet/loader';
+import { IBSheetAngular } from '@ibsheet/angular';
+import type { IBSheetInstance } from '@ibsheet/angular';
 
 @Component({
   selector: 'app-formula',
-  imports: [],
+  imports: [SharedModules, IBSheetAngular],
   templateUrl: './formula.html',
   styleUrl: './formula.css'
 })
-export class Formula implements OnInit, OnDestroy {
+export class Formula {
 
-  constructor() { }
+  sheet?: IBSheetInstance;
 
-  sheet = new SheetCreate(options);
+  sheetOptions: any;
+  data: any;
 
-  ngOnInit(): void {
-    this.sheet.setSheet();
+  obj = options.map((x: { sheetOptions: any; sheetData: any }) => {
+    this.sheetOptions = x.sheetOptions;
+    this.data = x.sheetData;
+  });
+
+  getInstance(obj: IBSheetInstance): void {
+    this.sheet = obj;
   }
-  ngOnDestroy(): void {
-    this.sheet.removeSheet();
-  }
+  
 }

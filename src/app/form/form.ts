@@ -1,28 +1,33 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedModules } from '../shared/shared.module';
-import { SheetCreate } from '../config/sheet-create/sheet-create';
 import { options } from './form.options';
-import loader from '@ibsheet/loader';
+import { IBSheetAngular } from '@ibsheet/angular';
+import type { IBSheetInstance } from '@ibsheet/angular';
 
 @Component({
   selector: 'app-form',
-  imports: [SharedModules],
+  imports: [SharedModules, IBSheetAngular],
   templateUrl: './form.html',
   styleUrl: './form.css'
 })
-export class Form implements OnInit, OnDestroy {
-  constructor() { }
+export class Form {
 
-  sheet = new SheetCreate(options);
+  sheet?: IBSheetInstance;
 
-  ngOnInit(): void {
-    this.sheet.setSheet();
+  sheetOptions: any;
+  data: any;
+
+  obj = options.map((x: { sheetOptions: any; sheetData: any }) => {
+    this.sheetOptions = x.sheetOptions;
+    this.data = x.sheetData;
+  });
+
+  getInstance(obj: IBSheetInstance): void {
+    this.sheet = obj;
   }
-  ngOnDestroy(): void {
-    this.sheet.removeSheet();
-  }
+
   onSetValue(arg:any): void {
-    const sheet = loader.getIBSheetStatic()[0];
-    sheet.setValue(sheet.getFocusedRow(), arg.target.id, arg.target.value);
+    const sheet = this.sheet;
+    if (sheet) sheet.setValue(sheet.getFocusedRow(), arg.target.id, arg.target.value);
   }
 }

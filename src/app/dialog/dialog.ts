@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedModules } from '../shared/shared.module';
-import { SheetCreate } from '../config/sheet-create/sheet-create';
 import { options } from './dialog.options';
 import { dialogoptions } from './dialog.dialog.options';
 import loader from '@ibsheet/loader';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IBSheetAngular } from '@ibsheet/angular';
+import type { IBSheetInstance } from '@ibsheet/angular';
 
 export interface DialogData {
   animal: string;
@@ -13,21 +14,28 @@ export interface DialogData {
 
 @Component({
   selector: 'app-dialog',
-  imports: [SharedModules],
+  imports: [SharedModules, IBSheetAngular],
   templateUrl: './dialog.html',
   styleUrl: './dialog.css'
 })
-export class Dialog implements OnInit, OnDestroy {
+export class Dialog {
   constructor(public dialog: MatDialog) { }
 
-  sheet = new SheetCreate(options);
+  sheet?: IBSheetInstance;
 
-  ngOnInit(): void {
-    this.sheet.setSheet();
+  sheetOptions: any;
+  data: any;
+
+  obj = options.map((x: { sheetOptions: any; sheetData: any }) => {
+    this.sheetOptions = x.sheetOptions;
+    this.data = x.sheetData;
+  });
+
+  getInstance(obj: IBSheetInstance): void {
+    this.sheet = obj;
+    this.sheet.loadSearchData(this.data)
   }
-  ngOnDestroy(): void {
-    this.sheet.removeSheet();
-  }
+
   onOpenDialog(mode?: number): void {
     this.dialog.open(DialogOverview, {
       width: '50%',
@@ -39,19 +47,26 @@ export class Dialog implements OnInit, OnDestroy {
 
 @Component({
   selector: 'dialog-matertial-component',
+  imports: [IBSheetAngular],
   templateUrl: './dialog.matertial.html'
 })
-export class DialogOverview implements OnInit, OnDestroy  {
+export class DialogOverview {
   constructor(private dialogRef: MatDialogRef<DialogOverview>) {}
 
-  sheet = new SheetCreate(dialogoptions);
+  sheet?: IBSheetInstance;
 
-  ngOnInit(): void {
-    this.sheet.setSheet();
+  sheetOptions: any;
+  data: any;
+
+  obj = dialogoptions.map((x: { sheetOptions: any; sheetData: any }) => {
+    this.sheetOptions = x.sheetOptions;
+    this.data = x.sheetData;
+  });
+
+  getInstance(obj: IBSheetInstance): void {
+    this.sheet = obj;
   }
-  ngOnDestroy(): void {
-    this.sheet.removeSheet();
-  }
+
   close(): void {
     this.dialogRef.close();
   }

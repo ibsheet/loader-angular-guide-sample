@@ -1,24 +1,27 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedModules } from '../shared/shared.module';
-import { SheetCreate } from '../config/sheet-create/sheet-create';
 import { options } from './serverscrollpaging.options';
-import loader from '@ibsheet/loader';
+import { IBSheetAngular } from '@ibsheet/angular';
+import type { IBSheetInstance } from '@ibsheet/angular';
 
 @Component({
   selector: 'app-serverscrollpaging',
-  imports: [SharedModules],
+  imports: [SharedModules, IBSheetAngular],
   templateUrl: './serverscrollpaging.html',
   styleUrl: './serverscrollpaging.css'
 })
-export class Serverscrollpaging implements OnInit, OnDestroy {
-  constructor() { }
+export class Serverscrollpaging {
+  sheet?: IBSheetInstance;
 
-  sheet = new SheetCreate(options);
+  sheetOptions: any;
+  data: any;
 
-  ngOnInit(): void {
-    this.sheet.setSheet();
-  }
-  ngOnDestroy(): void {
-    this.sheet.removeSheet();
+  obj = options.map((x: { sheetOptions: any; sheetData: any }) => {
+    this.sheetOptions = x.sheetOptions;
+    this.data = x.sheetData;
+  });
+
+  getInstance(obj: IBSheetInstance): void {
+    this.sheet = obj;
   }
 }

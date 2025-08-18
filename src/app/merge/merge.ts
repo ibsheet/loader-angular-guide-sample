@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedModules } from '../shared/shared.module';
-import { SheetCreate } from '../config/sheet-create/sheet-create';
 import { options } from './merge.options';
-import loader from '@ibsheet/loader';
+import { IBSheetAngular } from '@ibsheet/angular';
+import type { IBSheetInstance } from '@ibsheet/angular';
 
 interface mergeInfo {
   value: string;
@@ -11,11 +11,11 @@ interface mergeInfo {
 
 @Component({
   selector: 'app-merge',
-  imports: [SharedModules],
+  imports: [SharedModules, IBSheetAngular],
   templateUrl: './merge.html',
   styleUrl: './merge.css'
 })
-export class Merge implements OnInit, OnDestroy{
+export class Merge {
   merge1: mergeInfo[] = [
     {value: '0', valueString: 'HeaderMerge: 0'},
     {value: '1', valueString: 'HeaderMerge: 1'},
@@ -41,25 +41,39 @@ export class Merge implements OnInit, OnDestroy{
     {value: '3', valueString: 'PrevColumnMerge: 3'},
   ];
 
-  constructor() { }
+  sheet?: IBSheetInstance;
 
-  sheet = new SheetCreate(options);
-  ngOnInit(): void {
-    this.sheet.setSheet();
-  }
-  ngOnDestroy(): void {
-    this.sheet.removeSheet();
+  sheetOptions: any;
+  data: any;
+
+  obj = options.map((x: { sheetOptions: any; sheetData: any }) => {
+    this.sheetOptions = x.sheetOptions;
+    this.data = x.sheetData;
+  });
+
+  getInstance(obj: IBSheetInstance): void {
+    this.sheet = obj;
   }
   OnHeaderSelect(arg: string): void {
-    const sheet = loader.getIBSheetStatic()[0];
-    if (sheet) sheet.setAutoMerge(sheet.DataMerge, arg, sheet.PrevColumnMerge);
+    const sheet = this.sheet
+    if (sheet) {
+      const num = Number(arg);
+      sheet.setAutoMerge(sheet.DataMerge, num, sheet.PrevColumnMerge);
+    }
   }
   OnDataSelect(arg: string): void {
-    const sheet = loader.getIBSheetStatic()[0];
-    if (sheet) sheet.setAutoMerge(arg, sheet.HeaderMerge, sheet.PrevColumnMerge);
+    const sheet = this.sheet
+    if (sheet) {
+      const num = Number(arg);
+      sheet.setAutoMerge(num, sheet.HeaderMerge, sheet.PrevColumnMerge);
+    }
   }
   OnPrevSelect(arg: string): void {
-    const sheet = loader.getIBSheetStatic()[0];
-    if (sheet) sheet.setAutoMerge(sheet.DataMerge, sheet.HeaderMerge, arg);
+    const sheet = this.sheet
+    if (sheet) {
+      const num = Number(arg);
+      sheet.setAutoMerge(sheet.DataMerge, sheet.HeaderMerge, num);
+    }
   }
+  
 }

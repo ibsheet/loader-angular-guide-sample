@@ -26,5 +26,9 @@
       </mat-form-field>
     </div>
   </div>
-  <div id="sheetDiv" style="width: 100%; height: 70vh;"></div>
+  <ibsheet-angular
+    [options]="sheetOptions"
+    [style]="{width: '100%', height: '70vh'}"
+    (instance)="getInstance($event)"
+  />
 </div>

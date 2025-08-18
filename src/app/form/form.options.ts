@@ -268,6 +268,9 @@ const options = [
         }
       ],
       Events: {
+		onRenderFirstFinish: (evt: any) => {
+          evt.sheet.loadSearchData(data);
+        },
         onBeforeFocus: () => {
           switch (document.activeElement) {
             case (document.getElementById('sName') as HTMLInputElement):

@@ -8,5 +8,9 @@
     <button mat-raised-button (click)="onSubSum(4);">다중 컬럼 소계/누계</button>
     <button mat-raised-button (click)="onSubSum(5);">소계행 삭제</button>
   </div>
-  <div id="sheetDiv" style="width: 100%; height: 70vh;"></div>
+  <ibsheet-angular
+    [options]="sheetOptions"
+    [style]="{width: '100%', height: '70vh'}"
+    (instance)="getInstance($event)"
+  />
 </div>

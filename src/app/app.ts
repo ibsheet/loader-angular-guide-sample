@@ -19,6 +19,8 @@ loader.config({
   registry: [ibsheetLib]
 });
 
+loader.load()
+
 @Component({
   selector: 'app-root',
   standalone: true,

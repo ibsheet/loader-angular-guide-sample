@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedModules } from '../shared/shared.module';
-import { SheetCreate } from '../config/sheet-create/sheet-create';
 import { options } from './tree.options';
-import loader from '@ibsheet/loader';
+import { IBSheetAngular } from '@ibsheet/angular';
+import type { IBSheetInstance } from '@ibsheet/angular';
 
 interface treelevelInfo {
   value: string;
@@ -11,11 +11,11 @@ interface treelevelInfo {
 
 @Component({
   selector: 'app-tree',
-  imports: [SharedModules],
+  imports: [SharedModules, IBSheetAngular],
   templateUrl: './tree.html',
   styleUrl: './tree.css'
 })
-export class Tree implements OnInit, OnDestroy {
+export class Tree {
   treelevel: treelevelInfo[] = [
     {value: '1', valueString: 'showTreeLevel: 1'},
     {value: '2', valueString: 'showTreeLevel: 2'},
@@ -23,18 +23,25 @@ export class Tree implements OnInit, OnDestroy {
     {value: '4', valueString: 'showTreeLevel: 4'},
   ];
 
-  constructor() { }
+  sheet?: IBSheetInstance;
 
-  sheet = new SheetCreate(options);
+  sheetOptions: any;
+  data: any;
 
-  ngOnInit(): void {
-    this.sheet.setSheet();
+  obj = options.map((x: { sheetOptions: any; sheetData: any }) => {
+    this.sheetOptions = x.sheetOptions;
+    this.data = x.sheetData;
+  });
+
+  getInstance(obj: IBSheetInstance): void {
+    this.sheet = obj;
   }
-  ngOnDestroy(): void {
-    this.sheet.removeSheet();
-  }
+
   onTreeSelect(arg: string): void {
-    const sheet = loader.getIBSheetStatic()[0];
-    if (sheet) sheet.showTreeLevel(arg);
+    const sheet = this.sheet
+    if (sheet) {
+      const num = Number(arg);
+      sheet.showTreeLevel(num);
+    }
   }
 }
