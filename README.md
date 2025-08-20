@@ -1,6 +1,6 @@
 # loader-angular-guide-sample 👋
 
-## Guide sample using loader and angular
+## Guide sample using loader and ibsheet-angular, angular
 
 ## 📖 구조
 
@@ -11,6 +11,7 @@
 ### 사용기술
 
 👉 `@ibsheet/loader: 1.1.25` <br/>
+👉 `@ibsheet/angular: 1.0.1` <br/>
 👉 `Typescript, Angular, Angular-Material, FontAweSome, yarn`
 
 ### ✨설치방법
@@ -22,4 +23,3 @@
 5. `public/lib` 에 ibsheet 라이브러리가 들어있는 assets 폴더를 넣어줍니다. (config/config.js 에서 파일위치는 변경할 수 있음.)
 6. `yarn build` // build 파일 생성됨.
 7. `yarn start` // start 로컬
-8. `serverscrollpaging` 사용을 위해 `api` 폴더에서 서버를 실행하셔야 합니다. (명령어: `yarn start`)
